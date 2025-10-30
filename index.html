@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShieldCar Blumenau - Proteção Veicular com até 50% de Desconto</title>
+    <meta name="description" content="Proteja seu veículo com economia de até 50%. Cotação online em 3 passos simples. ShieldCar Blumenau - Associação de Benefícios Automotivos.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1581222786653125');
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1581222786653125&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #AFC41A;
+            --primary-yellow: #B3BC11;
+            --dark-gray: #1D2829;
+            --light-gray: #F2F2F2;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--light-gray);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0c0d 0%, var(--dark-gray) 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 60px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(175, 196, 26, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(179, 188, 17, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(175, 196, 26, 0.15);
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(175, 196, 26, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 15px rgba(175, 196, 26, 0);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            color: var(--white);
+        }
+
+        .hero-title .highlight {
+            color: var(--primary-green);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 50px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 22px 60px;
+            background: var(--primary-yellow);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 10px;
+            box-shadow: 6px 6px 18px rgba(179, 188, 17, 0.4);
+            transition: all 0.3s;
+            letter-spacing: 1px;
+            animation: bounceIn 1s ease-out 0.5s both;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .cta-button:hover {
+            background: var(--primary-green);
+            transform: translateY(-3px);
+            box-shadow: 6px 8px 20px rgba(175, 196, 26, 0.5);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 80px 20px;
+            background: var(--white);
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            color: var(--dark-gray);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: var(--light-gray);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-green);
+            box-shadow: 6px 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .benefit-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+
+        .benefit-description {
+            color: rgba(29, 40, 41, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* How it Works */
+        .how-it-works {
+            padding: 80px 20px;
+            background: var(--light-gray);
+        }
+
+        .steps-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .step-card {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            background: var(--white);
+            padding: 35px 40px;
+            border-radius: 20px;
+            border-left: 5px solid var(--primary-green);
+            box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateX(10px);
+            box-shadow: 6px 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 70px;
+            height: 70px;
+            background: var(--primary-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--white);
+            box-shadow: 0 6px 15px rgba(179, 188, 17, 0.3);
+        }
+
+        .step-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark-gray);
+        }
+
+        .step-content p {
+            color: rgba(29, 40, 41, 0.7);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            padding: 80px 20px;
+            background: var(--white);
+        }
+
+        .trust-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .trust-item {
+            padding: 20px;
+        }
+
+        .trust-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+        }
+
+        .trust-label {
+            font-size: 1.1rem;
+            color: rgba(29, 40, 41, 0.7);
+            font-weight: 600;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 20px;
+            background: var(--primary-yellow);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .final-cta p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .cta-button-dark {
+            display: inline-block;
+            padding: 22px 60px;
+            background: var(--dark-gray);
+            color: var(--primary-green);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .cta-button-dark:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 40px 15px;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .cta-button {
+                padding: 18px 40px;
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .benefit-card {
+                padding: 30px 20px;
+            }
+
+            .step-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 25px;
+            }
+
+            .step-card:hover {
+                transform: translateY(-10px);
+            }
+
+            .final-cta h2 {
+                font-size: 2rem;
+            }
+
+            .final-cta p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="logo">Shield<span>Car</span></div>
+
+                <div class="badge">
+                    🔥 OFERTA EXCLUSIVA - BLUMENAU
+                </div>
+
+                <h1 class="hero-title">
+                    Proteja seu Veículo
+                    <span class="highlight">Economize até 50%</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Associação de benefícios automotivos com cobertura completa,<br>
+                    assistência 24h e atendimento especializado em Blumenau
+                </p>
+
+                <a href="cotacao.html" class="cta-button">
+                    Cotação Grátis - 3 Passos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">Por que escolher a ShieldCar?</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3 class="benefit-title">Cobertura Completa</h3>
+                    <p class="benefit-description">
+                        Proteção contra roubo, furto, colisão, incêndio e muito mais em todo território nacional
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3 class="benefit-title">Economia Real</h3>
+                    <p class="benefit-description">
+                        Até 50% mais barato que seguros tradicionais, sem comprometer a qualidade do serviço
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3 class="benefit-title">Atendimento Rápido</h3>
+                    <p class="benefit-description">
+                        Resposta em até 2 minutos e assistência 24 horas, todos os dias da semana
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚗</div>
+                    <h3 class="benefit-title">Para Todo Veículo</h3>
+                    <p class="benefit-description">
+                        Carros, motos, caminhões e veículos de trabalho como táxi e Uber
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📱</div>
+                    <h3 class="benefit-title">Tudo Online</h3>
+                    <p class="benefit-description">
+                        Cotação, contratação e acionamento 100% digital, rápido e sem burocracia
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">👥</div>
+                    <h3 class="benefit-title">Suporte Local</h3>
+                    <p class="benefit-description">
+                        Equipe dedicada em Blumenau para atender suas necessidades com excelência
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Como Funciona?</h2>
+
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Preencha seus Dados</h3>
+                        <p>
+                            Informações do seu veículo e dados pessoais em um formulário simples de 3 etapas. Leva menos de 2 minutos.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Receba sua Cotação</h3>
+                        <p>
+                            Nossa equipe analisa seu perfil e entra em contato em até 2 minutos com a melhor proposta personalizada.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Fique Protegido</h3>
+                        <p>
+                            Aprove a proposta e seu veículo estará protegido imediatamente com toda assistência e suporte 24h.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="container">
+            <h2 class="section-title">Números que Inspiram Confiança</h2>
+
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-number">500+</div>
+                    <div class="trust-label">Clientes Protegidos</div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-number">4.9★</div>
+                    <div class="trust-label">Avaliação Média</div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-number">24/7</div>
+                    <div class="trust-label">Suporte Disponível</div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-number">50%</div>
+                    <div class="trust-label">Economia Média</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Pronto para Proteger seu Veículo?</h2>
+            <p>Faça sua cotação gratuita agora e economize até 50%</p>
+            <a href="cotacao.html" class="cta-button-dark">
+                Começar Minha Cotação
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Track CTA clicks
+        document.querySelectorAll('a[href="cotacao.html"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'InitiateCheckout');
+                }
+                console.log('✓ CTA clicked - User initiated quote flow');
+            });
+        });
+    </script>
+</body>
+</html>

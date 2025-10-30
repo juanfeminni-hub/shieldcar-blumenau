@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotação ShieldCar - Proteção Veicular Blumenau</title>
+    <meta name="description" content="Faça sua cotação de proteção veicular em 3 passos simples. Rápido, fácil e sem compromisso.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1581222786653125');
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1581222786653125&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #AFC41A;
+            --primary-yellow: #B3BC11;
+            --dark-gray: #1D2829;
+            --light-gray: #F2F2F2;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.5;
+            background: var(--light-gray);
+        }
+
+        .main-container {
+            min-height: 100vh;
+            padding: 20px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 850px;
+            width: 100%;
+        }
+
+        /* Header Compacto */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .logo span {
+            color: var(--dark-gray);
+        }
+
+        .header-subtitle {
+            color: rgba(29, 40, 41, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Progress Bar Compacto */
+        .progress-container {
+            background: var(--white);
+            padding: 18px 20px;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,.08);
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 18px;
+            left: 50px;
+            right: 50px;
+            height: 3px;
+            background: #E0E0E0;
+            z-index: 0;
+        }
+
+        .progress-line-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-yellow) 0%, var(--primary-green) 100%);
+            transition: width 0.4s ease;
+            width: 0%;
+        }
+
+        .progress-step {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .step-circle {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid #E0E0E0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1rem;
+            color: #999;
+            transition: all 0.3s;
+        }
+
+        .progress-step.active .step-circle {
+            background: var(--primary-green);
+            border-color: var(--primary-green);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .progress-step.completed .step-circle {
+            background: var(--primary-green);
+            border-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        .step-label {
+            font-size: 0.7rem;
+            color: #999;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .progress-step.active .step-label,
+        .progress-step.completed .step-label {
+            color: var(--primary-green);
+        }
+
+        /* Form Container Compacto */
+        .form-container {
+            background: var(--white);
+            padding: 25px 25px 30px;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,.08);
+        }
+
+        .step-content {
+            display: none;
+        }
+
+        .step-content.active {
+            display: block;
+        }
+
+        .step-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .step-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin-bottom: 5px;
+            color: var(--dark-gray);
+            text-transform: uppercase;
+        }
+
+        .step-description {
+            color: rgba(29, 40, 41, 0.6);
+            font-size: 0.85rem;
+        }
+
+        /* Form Fields - 2 Colunas Compactas */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--dark-gray);
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            background: var(--white);
+            color: var(--dark-gray);
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(175, 196, 26, 0.1);
+        }
+
+        .form-group select:disabled {
+            background: #F9F9F9;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .form-group select.loading {
+            background: var(--white) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke="%23AFC41A" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" from="0 25 25" to="360 25 25"/></circle></svg>') no-repeat right 14px center;
+            background-size: 18px;
+        }
+
+        .form-group.error input,
+        .form-group.error select {
+            border-color: #EF4444;
+        }
+
+        .error-message {
+            color: #EF4444;
+            font-size: 0.7rem;
+            margin-top: 4px;
+            display: none;
+            font-weight: 600;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        /* Info Box Compacto */
+        .info-box {
+            background: linear-gradient(135deg, rgba(175, 196, 26, 0.08) 0%, rgba(179, 188, 17, 0.04) 100%);
+            border: 2px solid var(--primary-green);
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .info-box-icon {
+            font-size: 1.3rem;
+        }
+
+        .info-box-text {
+            font-weight: 600;
+            color: var(--dark-gray);
+            font-size: 0.8rem;
+        }
+
+        /* Review Grid Compacto */
+        .review-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .review-card {
+            background: var(--light-gray);
+            padding: 12px 15px;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary-green);
+        }
+
+        .review-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .review-label {
+            font-size: 0.65rem;
+            color: rgba(29, 40, 41, 0.6);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-bottom: 4px;
+        }
+
+        .review-value {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--dark-gray);
+        }
+
+        /* Buttons Compactos */
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--light-gray);
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: var(--primary-yellow);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(179, 188, 17, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-green);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(175, 196, 26, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--dark-gray);
+            border: 2px solid var(--light-gray);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-gray);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* Success Message Compacto */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 30px;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        .success-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-green) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            margin: 0 auto 20px;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        .success-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .success-text {
+            color: rgba(29, 40, 41, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .success-highlight {
+            display: inline-block;
+            background: var(--light-gray);
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: 700;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 15px 10px;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .progress-container {
+                padding: 15px;
+            }
+
+            .form-container {
+                padding: 20px 18px 25px;
+            }
+
+            .form-grid,
+            .review-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .form-group.full-width,
+            .review-card.full-width {
+                grid-column: 1;
+            }
+
+            .step-label {
+                font-size: 0.65rem;
+            }
+
+            .step-circle {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+
+            .progress-line {
+                left: 40px;
+                right: 40px;
+            }
+
+            .button-group {
+                flex-direction: column-reverse;
+                gap: 10px;
+            }
+
+            .step-title {
+                font-size: 1.2rem;
+            }
+
+            .step-description {
+                font-size: 0.8rem;
+            }
+
+            .info-box {
+                flex-direction: column;
+                gap: 8px;
+                padding: 15px;
+            }
+
+            .info-box-text {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Mobile Small */
+        @media (max-width: 480px) {
+            .main-container {
+                padding: 10px 8px;
+            }
+
+            .header {
+                margin-bottom: 15px;
+            }
+
+            .form-container {
+                padding: 18px 15px 20px;
+            }
+
+            .step-header {
+                margin-bottom: 15px;
+                padding-bottom: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="container">
+            <div class="header">
+                <div class="logo">Shield<span>Car</span></div>
+                <p class="header-subtitle">Cotação em 3 passos simples</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-steps">
+                    <div class="progress-line">
+                        <div class="progress-line-fill" id="progressFill"></div>
+                    </div>
+
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <span class="step-label">Veículo</span>
+                    </div>
+
+                    <div class="progress-step" data-step="2">
+                        <div class="step-circle">2</div>
+                        <span class="step-label">Dados</span>
+                    </div>
+
+                    <div class="progress-step" data-step="3">
+                        <div class="step-circle">3</div>
+                        <span class="step-label">Revisão</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Container -->
+            <div class="form-container">
+                <!-- Step 1: Vehicle Data -->
+                <div class="step-content active" id="step1">
+                    <div class="step-header">
+                        <h2 class="step-title">Dados do Veículo</h2>
+                        <p class="step-description">Informe os dados do veículo</p>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="info-box-icon">🚗</div>
+                        <p class="info-box-text">Carros, motos, caminhões e veículos de trabalho</p>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="placa">Placa *</label>
+                            <input type="text" id="placa" name="placa" required placeholder="ABC1234" maxlength="7">
+                            <span class="error-message">Placa inválida</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="veiculo">Tipo *</label>
+                            <select id="veiculo" name="veiculo" required>
+                                <option value="">Selecione...</option>
+                                <option value="carros">Carro/Utilitário</option>
+                                <option value="motos">Moto</option>
+                                <option value="caminhoes">Caminhão/Ônibus</option>
+                            </select>
+                            <span class="error-message">Selecione o tipo</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="marca">Marca *</label>
+                            <select id="marca" name="marca" required disabled>
+                                <option value="">Selecione o tipo</option>
+                            </select>
+                            <span class="error-message">Selecione a marca</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="modelo">Modelo *</label>
+                            <select id="modelo" name="modelo" required disabled>
+                                <option value="">Selecione a marca</option>
+                            </select>
+                            <span class="error-message">Selecione o modelo</span>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="ano">Ano *</label>
+                            <select id="ano" name="ano" required disabled>
+                                <option value="">Selecione o modelo</option>
+                            </select>
+                            <span class="error-message">Selecione o ano</span>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="button" class="btn btn-primary" onclick="nextStep(1)">
+                            Próximo →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Personal Data -->
+                <div class="step-content" id="step2">
+                    <div class="step-header">
+                        <h2 class="step-title">Seus Dados</h2>
+                        <p class="step-description">Informações para contato</p>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="info-box-icon">🔒</div>
+                        <p class="info-box-text">Dados protegidos e sigilosos</p>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="nome">Nome Completo *</label>
+                            <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+                            <span class="error-message">Nome inválido</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                            <span class="error-message">E-mail inválido</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefone">WhatsApp *</label>
+                            <input type="tel" id="telefone" name="telefone" required placeholder="(00) 00000-0000">
+                            <span class="error-message">Telefone inválido</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="estado">Estado *</label>
+                            <select id="estado" name="estado" required>
+                                <option value="">Selecione...</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC" selected>Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                            <span class="error-message">Selecione o estado</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cidade">Cidade *</label>
+                            <input type="text" id="cidade" name="cidade" required value="Blumenau" placeholder="Cidade">
+                            <span class="error-message">Insira a cidade</span>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep(2)">
+                            ← Voltar
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep(2)">
+                            Próximo →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Review -->
+                <div class="step-content" id="step3">
+                    <div class="step-header">
+                        <h2 class="step-title">Confirme os Dados</h2>
+                        <p class="step-description">Revise antes de enviar</p>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="info-box-icon">⏰</div>
+                        <p class="info-box-text">Contato em até 2 minutos via WhatsApp</p>
+                    </div>
+
+                    <div class="review-grid" id="reviewData">
+                        <!-- Populated by JavaScript -->
+                    </div>
+
+                    <div class="button-group">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep(3)">
+                            ← Voltar
+                        </button>
+                        <button type="button" class="btn btn-primary" id="submitBtn" onclick="submitForm()">
+                            Enviar ✓
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Success Message -->
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">✓</div>
+                    <h2 class="success-title">Enviado!</h2>
+                    <p class="success-text">
+                        Nossa equipe entrará em contato<br>
+                        <strong>em até 2 minutos</strong> via WhatsApp.
+                    </p>
+                    <div class="success-highlight">
+                        📱 Fique atento ao telefone
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Configuration
+    const CONFIG = {
+        hubspotPortalId: '50536787',
+        hubspotFormId: '0a12dcbf-0c77-4ae3-86c8-fe7604dd4b85',
+        metaPixelId: '1581222786653125'
+    };
+
+    let currentStep = 1;
+    const formData = {};
+
+    // Validators
+    const Validator = {
+        email: (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
+        telefone: (telefone) => {
+            const cleaned = telefone.replace(/\D/g, '');
+            return cleaned.length >= 10 && cleaned.length <= 11;
+        },
+        nome: (nome) => nome.trim().length >= 3 && nome.trim().includes(' '),
+        placa: (placa) => /^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$/.test(placa.toUpperCase())
+    };
+
+    // Utilities
+    function formatarTelefone(value) {
+        const cleaned = value.replace(/\D/g, '');
+        if (cleaned.length <= 10) {
+            return cleaned.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+        }
+        return cleaned.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+    }
+
+    function formatarPlaca(value) {
+        return value.toUpperCase().replace(/[^A-Z0-9]/g, '').substring(0, 7);
+    }
+
+    function validarCampo(input) {
+        const formGroup = input.closest('.form-group');
+        let isValid = true;
+
+        if (input.hasAttribute('required') && !input.value.trim()) {
+            isValid = false;
+        } else if (input.type === 'email' && !Validator.email(input.value)) {
+            isValid = false;
+        } else if (input.id === 'telefone' && !Validator.telefone(input.value)) {
+            isValid = false;
+        } else if (input.id === 'nome' && !Validator.nome(input.value)) {
+            isValid = false;
+        } else if (input.id === 'placa' && input.value && !Validator.placa(input.value)) {
+            isValid = false;
+        }
+
+        if (isValid) {
+            formGroup.classList.remove('error');
+        } else {
+            formGroup.classList.add('error');
+        }
+
+        return isValid;
+    }
+
+    function validateStep(step) {
+        const stepElement = document.getElementById(`step${step}`);
+        const inputs = stepElement.querySelectorAll('input[required], select[required]');
+        let isValid = true;
+
+        inputs.forEach(input => {
+            if (!validarCampo(input)) {
+                isValid = false;
+            }
+        });
+
+        return isValid;
+    }
+
+    function updateProgress(step) {
+        const progressSteps = document.querySelectorAll('.progress-step');
+        const progressFill = document.getElementById('progressFill');
+
+        progressSteps.forEach((stepEl, index) => {
+            if (index + 1 < step) {
+                stepEl.classList.add('completed');
+                stepEl.classList.remove('active');
+            } else if (index + 1 === step) {
+                stepEl.classList.add('active');
+                stepEl.classList.remove('completed');
+            } else {
+                stepEl.classList.remove('active', 'completed');
+            }
+        });
+
+        const progress = ((step - 1) / 2) * 100;
+        progressFill.style.width = progress + '%';
+    }
+
+    function nextStep(step) {
+        if (!validateStep(step)) {
+            return;
+        }
+
+        const stepElement = document.getElementById(`step${step}`);
+        const inputs = stepElement.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            formData[input.id] = input.value;
+        });
+
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'AddToCart', {
+                content_name: `Step ${step} Completed`,
+                content_category: 'Quote Flow'
+            });
+        }
+
+        document.getElementById(`step${step}`).classList.remove('active');
+        document.getElementById(`step${step + 1}`).classList.add('active');
+        currentStep = step + 1;
+        updateProgress(currentStep);
+
+        if (currentStep === 3) {
+            populateReview();
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function prevStep(step) {
+        document.getElementById(`step${step}`).classList.remove('active');
+        document.getElementById(`step${step - 1}`).classList.add('active');
+        currentStep = step - 1;
+        updateProgress(currentStep);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function populateReview() {
+        const reviewContainer = document.getElementById('reviewData');
+
+        const tipoVeiculoMap = {
+            'carros': 'Carro/Utilitário',
+            'motos': 'Moto',
+            'caminhoes': 'Caminhão/Ônibus'
+        };
+
+        const getMarcaText = () => {
+            const select = document.getElementById('marca');
+            return select.options[select.selectedIndex]?.dataset?.nome || select.value;
+        };
+
+        const getModeloText = () => {
+            const select = document.getElementById('modelo');
+            return select.options[select.selectedIndex]?.dataset?.nome || select.value;
+        };
+
+        const getAnoText = () => {
+            const select = document.getElementById('ano');
+            return select.options[select.selectedIndex]?.dataset?.nome || select.value;
+        };
+
+        const reviewItems = [
+            { label: 'Placa', value: formData.placa, fullWidth: false },
+            { label: 'Tipo', value: tipoVeiculoMap[formData.veiculo] || formData.veiculo, fullWidth: false },
+            { label: 'Marca', value: getMarcaText(), fullWidth: false },
+            { label: 'Modelo', value: getModeloText(), fullWidth: false },
+            { label: 'Ano', value: getAnoText(), fullWidth: true },
+            { label: 'Nome', value: formData.nome, fullWidth: true },
+            { label: 'E-mail', value: formData.email, fullWidth: false },
+            { label: 'WhatsApp', value: formData.telefone, fullWidth: false },
+            { label: 'Local', value: `${formData.cidade} - ${formData.estado}`, fullWidth: true }
+        ];
+
+        reviewContainer.innerHTML = reviewItems.map(item => `
+            <div class="review-card ${item.fullWidth ? 'full-width' : ''}">
+                <div class="review-label">${item.label}</div>
+                <div class="review-value">${item.value}</div>
+            </div>
+        `).join('');
+    }
+
+    async function submitForm() {
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+
+        const getMarcaText = () => {
+            const select = document.getElementById('marca');
+            return select.options[select.selectedIndex]?.dataset?.nome || select.value;
+        };
+
+        const getModeloText = () => {
+            const select = document.getElementById('modelo');
+            return select.options[select.selectedIndex]?.dataset?.nome || select.value;
+        };
+
+        const getAnoText = () => {
+            const select = document.getElementById('ano');
+            return select.options[select.selectedIndex]?.dataset?.nome || select.value;
+        };
+
+        const tipoVeiculoMap = {
+            'carros': 'Carro/Utilitário',
+            'motos': 'Moto',
+            'caminhoes': 'Caminhão/Ônibus'
+        };
+
+        const submitData = {
+            nome: formData.nome,
+            email: formData.email,
+            telefone: formData.telefone,
+            placa: formData.placa,
+            veiculo: tipoVeiculoMap[formData.veiculo] || formData.veiculo,
+            marca: getMarcaText(),
+            modelo: getModeloText(),
+            ano: getAnoText(),
+            estado: formData.estado,
+            cidade: formData.cidade
+        };
+
+        try {
+            const leads = JSON.parse(localStorage.getItem('leads') || '[]');
+            leads.push({ ...submitData, timestamp: new Date().toISOString() });
+            localStorage.setItem('leads', JSON.stringify(leads));
+
+            await enviarParaHubSpot(submitData);
+            enviarParaN8n(submitData);
+
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Cotação Proteção Veicular',
+                    content_category: submitData.veiculo,
+                    value: 0,
+                    currency: 'BRL'
+                });
+            }
+
+            document.getElementById('step3').classList.remove('active');
+            document.getElementById('successMessage').classList.add('active');
+
+        } catch (error) {
+            console.error('Erro:', error);
+            alert('Erro ao enviar. Tente novamente.');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Enviar ✓';
+        }
+    }
+
+    async function enviarParaHubSpot(data) {
+        const url = `https://api.hsforms.com/submissions/v3/integration/submit/${CONFIG.hubspotPortalId}/${CONFIG.hubspotFormId}`;
+
+        const hubspotData = {
+            fields: [
+                { name: 'firstname', value: data.nome.split(' ')[0] },
+                { name: 'lastname', value: data.nome.split(' ').slice(1).join(' ') || data.nome.split(' ')[0] },
+                { name: 'email', value: data.email },
+                { name: 'phone', value: data.telefone },
+                { name: 'city', value: data.cidade },
+                { name: 'state', value: data.estado },
+                { name: 'placa_veiculo', value: data.placa },
+                { name: 'tipo_veiculo', value: data.veiculo },
+                { name: 'marca_veiculo', value: data.marca },
+                { name: 'modelo_veiculo', value: data.modelo },
+                { name: 'ano_veiculo', value: data.ano }
+            ],
+            context: {
+                pageUri: window.location.href,
+                pageName: document.title
+            }
+        };
+
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(hubspotData)
+        });
+
+        if (!response.ok) throw new Error('HubSpot error');
+        return response.json();
+    }
+
+    async function enviarParaN8n(data) {
+        const webhookUrl = 'https://tall-years-yell.loca.lt/webhook/hubspot-lead';
+
+        try {
+            await fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'bypass-tunnel-reminder': 'true'
+                },
+                body: JSON.stringify({
+                    firstname: data.nome.split(' ')[0],
+                    lastname: data.nome.split(' ').slice(1).join(' ') || data.nome.split(' ')[0],
+                    email: data.email,
+                    phone: data.telefone,
+                    city: data.cidade,
+                    state: data.estado,
+                    placa_veiculo: data.placa,
+                    tipo_veiculo: data.veiculo,
+                    marca_veiculo: data.marca,
+                    modelo_veiculo: data.modelo,
+                    ano_veiculo: data.ano
+                })
+            });
+        } catch (error) {
+            console.warn('n8n error:', error);
+        }
+    }
+
+    // FIPE API
+    const FIPE_API_BASE = 'https://parallelum.com.br/fipe/api/v1';
+    const fipeCache = { marcas: {}, modelos: {}, anos: {} };
+
+    async function carregarMarcas(tipoVeiculo) {
+        const marcaSelect = document.getElementById('marca');
+        const modeloSelect = document.getElementById('modelo');
+        const anoSelect = document.getElementById('ano');
+
+        resetarSelect(modeloSelect, 'Selecione a marca');
+        resetarSelect(anoSelect, 'Selecione o modelo');
+        modeloSelect.disabled = true;
+        anoSelect.disabled = true;
+
+        if (!tipoVeiculo) {
+            resetarSelect(marcaSelect, 'Selecione o tipo');
+            marcaSelect.disabled = true;
+            return;
+        }
+
+        if (fipeCache.marcas[tipoVeiculo]) {
+            popularSelect(marcaSelect, fipeCache.marcas[tipoVeiculo], 'Selecione a marca');
+            marcaSelect.disabled = false;
+            return;
+        }
+
+        try {
+            marcaSelect.classList.add('loading');
+            marcaSelect.disabled = true;
+
+            const response = await fetch(`${FIPE_API_BASE}/${tipoVeiculo}/marcas`);
+            const marcas = await response.json();
+            fipeCache.marcas[tipoVeiculo] = marcas;
+
+            popularSelect(marcaSelect, marcas, 'Selecione a marca');
+            marcaSelect.disabled = false;
+        } catch (error) {
+            console.error('Erro:', error);
+        } finally {
+            marcaSelect.classList.remove('loading');
+        }
+    }
+
+    async function carregarModelos(tipoVeiculo, codigoMarca) {
+        const modeloSelect = document.getElementById('modelo');
+        const anoSelect = document.getElementById('ano');
+
+        resetarSelect(anoSelect, 'Selecione o modelo');
+        anoSelect.disabled = true;
+
+        if (!tipoVeiculo || !codigoMarca) {
+            resetarSelect(modeloSelect, 'Selecione a marca');
+            modeloSelect.disabled = true;
+            return;
+        }
+
+        const cacheKey = `${tipoVeiculo}-${codigoMarca}`;
+
+        if (fipeCache.modelos[cacheKey]) {
+            popularSelect(modeloSelect, fipeCache.modelos[cacheKey], 'Selecione o modelo');
+            modeloSelect.disabled = false;
+            return;
+        }
+
+        try {
+            modeloSelect.classList.add('loading');
+            modeloSelect.disabled = true;
+
+            const response = await fetch(`${FIPE_API_BASE}/${tipoVeiculo}/marcas/${codigoMarca}/modelos`);
+            const data = await response.json();
+            const modelos = data.modelos || [];
+            fipeCache.modelos[cacheKey] = modelos;
+
+            popularSelect(modeloSelect, modelos, 'Selecione o modelo');
+            modeloSelect.disabled = false;
+        } catch (error) {
+            console.error('Erro:', error);
+        } finally {
+            modeloSelect.classList.remove('loading');
+        }
+    }
+
+    async function carregarAnos(tipoVeiculo, codigoMarca, codigoModelo) {
+        const anoSelect = document.getElementById('ano');
+
+        if (!tipoVeiculo || !codigoMarca || !codigoModelo) {
+            resetarSelect(anoSelect, 'Selecione o modelo');
+            anoSelect.disabled = true;
+            return;
+        }
+
+        const cacheKey = `${tipoVeiculo}-${codigoMarca}-${codigoModelo}`;
+
+        if (fipeCache.anos[cacheKey]) {
+            popularSelect(anoSelect, fipeCache.anos[cacheKey], 'Selecione o ano');
+            anoSelect.disabled = false;
+            return;
+        }
+
+        try {
+            anoSelect.classList.add('loading');
+            anoSelect.disabled = true;
+
+            const response = await fetch(`${FIPE_API_BASE}/${tipoVeiculo}/marcas/${codigoMarca}/modelos/${codigoModelo}/anos`);
+            const anos = await response.json();
+            fipeCache.anos[cacheKey] = anos;
+
+            popularSelect(anoSelect, anos, 'Selecione o ano');
+            anoSelect.disabled = false;
+        } catch (error) {
+            console.error('Erro:', error);
+        } finally {
+            anoSelect.classList.remove('loading');
+        }
+    }
+
+    function popularSelect(selectElement, opcoes, placeholder) {
+        selectElement.innerHTML = `<option value="">${placeholder}</option>`;
+        opcoes.forEach(opcao => {
+            const option = document.createElement('option');
+            option.value = opcao.codigo;
+            option.textContent = opcao.nome;
+            option.dataset.nome = opcao.nome;
+            selectElement.appendChild(option);
+        });
+    }
+
+    function resetarSelect(selectElement, placeholder) {
+        selectElement.innerHTML = `<option value="">${placeholder}</option>`;
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        const telefoneInput = document.getElementById('telefone');
+        const placaInput = document.getElementById('placa');
+        const veiculoSelect = document.getElementById('veiculo');
+        const marcaSelect = document.getElementById('marca');
+        const modeloSelect = document.getElementById('modelo');
+
+        telefoneInput.addEventListener('input', function() {
+            this.value = formatarTelefone(this.value);
+        });
+
+        placaInput.addEventListener('input', function() {
+            this.value = formatarPlaca(this.value);
+        });
+
+        veiculoSelect.addEventListener('change', function() {
+            carregarMarcas(this.value);
+        });
+
+        marcaSelect.addEventListener('change', function() {
+            carregarModelos(veiculoSelect.value, this.value);
+        });
+
+        modeloSelect.addEventListener('change', function() {
+            carregarAnos(veiculoSelect.value, marcaSelect.value, this.value);
+        });
+
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                validarCampo(this);
+            });
+
+            input.addEventListener('input', function() {
+                if (this.closest('.form-group').classList.contains('error')) {
+                    validarCampo(this);
+                }
+            });
+        });
+
+        console.log('✓ ShieldCar Form V3 - Optimized');
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# Redirect www to non-www
+https://www.shieldcar-blumenau.netlify.app/* https://shieldcar-blumenau.netlify.app/:splat 301!
+
+# Redirect old URLs
+/home / 301
+/formulario /cotacao.html 301
+/cotacao /cotacao.html 301

@@ -1,0 +1,77 @@
+═══════════════════════════════════════════════════════════
+   ✅ ARQUIVOS ATUALIZADOS COM META PIXEL
+═══════════════════════════════════════════════════════════
+
+Meta Pixel ID: 1581222786653125
+
+ARQUIVOS ATUALIZADOS:
+✅ index.html (2 lugares)
+✅ lead-automation.js
+
+═══════════════════════════════════════════════════════════
+   🚀 COMO FAZER O NOVO DEPLOY
+═══════════════════════════════════════════════════════════
+
+1. Acesse: https://app.netlify.com
+
+2. Clique no seu site: shieldcar-blumenau
+
+3. Clique na aba "Deploys" (no topo)
+
+4. ARRASTE TODOS OS ARQUIVOS desta pasta para a área de deploy
+   (Onde está escrito "Need to update your site?")
+
+5. Aguarde o upload (10-15 segundos)
+
+6. ✅ Pronto! Meta Pixel configurado e funcionando!
+
+═══════════════════════════════════════════════════════════
+   ✅ COMO TESTAR SE ESTÁ FUNCIONANDO
+═══════════════════════════════════════════════════════════
+
+1. Instale a extensão no Chrome:
+   Meta Pixel Helper
+   https://chrome.google.com/webstore/detail/meta-pixel-helper/
+
+2. Acesse seu site: https://shieldcar-blumenau.netlify.app
+
+3. Clique na extensão Meta Pixel Helper
+
+4. Você deve ver:
+   ✓ Pixel ID: 1581222786653125
+   ✓ PageView event detectado
+   ✓ Status: Active
+
+5. Preencha o formulário e envie
+
+6. A extensão deve mostrar:
+   ✓ Lead event detectado
+
+═══════════════════════════════════════════════════════════
+   📊 VERIFICAR NO META EVENTS MANAGER
+═══════════════════════════════════════════════════════════
+
+1. Acesse: https://business.facebook.com/events_manager
+
+2. Selecione seu Pixel (1581222786653125)
+
+3. Você deve ver em tempo real:
+   - PageView events
+   - Lead events (depois de submeter formulário)
+
+═══════════════════════════════════════════════════════════
+   ⚠️ PRÓXIMO PASSO: CONFIGURAR HUBSPOT
+═══════════════════════════════════════════════════════════
+
+Para o formulário ENVIAR os dados, você ainda precisa:
+
+1. Criar conta no HubSpot (gratuito)
+   https://app.hubspot.com/signup
+
+2. Obter Portal ID e Form ID
+
+3. Atualizar o arquivo lead-automation.js
+
+4. Fazer novo deploy
+
+═══════════════════════════════════════════════════════════
