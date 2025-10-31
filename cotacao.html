@@ -894,10 +894,16 @@
             return;
         }
 
-        // Collect data from step 2
-        const stepElement = document.getElementById('step2');
-        const inputs = stepElement.querySelectorAll('input, select');
-        inputs.forEach(input => {
+        // Collect data from ALL steps (step1 and step2)
+        const step1Element = document.getElementById('step1');
+        const step1Inputs = step1Element.querySelectorAll('input, select');
+        step1Inputs.forEach(input => {
+            formData[input.id] = input.value;
+        });
+
+        const step2Element = document.getElementById('step2');
+        const step2Inputs = step2Element.querySelectorAll('input, select');
+        step2Inputs.forEach(input => {
             formData[input.id] = input.value;
         });
 
