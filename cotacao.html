@@ -29,7 +29,7 @@
     </noscript>
     <!-- End Meta Pixel Code -->
 
-    <style>
+    <style data-version="2.2">
         * {
             margin: 0;
             padding: 0;
@@ -210,20 +210,21 @@
             font-size: 0.85rem;
         }
 
-        /* Form Fields - 2 Colunas Compactas */
+        /* Form Fields - 2 Colunas Compactas - v2.2 */
         .form-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr !important;
             gap: 15px;
             margin-bottom: 15px;
         }
 
         .form-group {
             margin-bottom: 0;
+            grid-column: auto !important;
         }
 
         .form-group.full-width {
-            grid-column: 1 / -1;
+            grid-column: auto !important;
         }
 
         .form-group label {
