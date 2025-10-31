@@ -547,7 +547,7 @@
         <div class="container">
             <div class="header">
                 <div class="logo">Shield<span>Car</span></div>
-                <p class="header-subtitle">Cotação em 3 passos simples</p>
+                <p class="header-subtitle">Cotação em 2 passos simples</p>
             </div>
 
             <!-- Progress Bar -->
@@ -565,11 +565,6 @@
                     <div class="progress-step" data-step="2">
                         <div class="step-circle">2</div>
                         <span class="step-label">Dados</span>
-                    </div>
-
-                    <div class="progress-step" data-step="3">
-                        <div class="step-circle">3</div>
-                        <span class="step-label">Revisão</span>
                     </div>
                 </div>
             </div>
@@ -715,34 +710,8 @@
                         <button type="button" class="btn btn-secondary" onclick="prevStep(2)">
                             ← Voltar
                         </button>
-                        <button type="button" class="btn btn-primary" onclick="nextStep(2)">
-                            Próximo →
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Step 3: Review -->
-                <div class="step-content" id="step3">
-                    <div class="step-header">
-                        <h2 class="step-title">Confirme os Dados</h2>
-                        <p class="step-description">Revise antes de enviar</p>
-                    </div>
-
-                    <div class="info-box">
-                        <div class="info-box-icon">⏰</div>
-                        <p class="info-box-text">Contato em até 2 minutos via WhatsApp</p>
-                    </div>
-
-                    <div class="review-grid" id="reviewData">
-                        <!-- Populated by JavaScript -->
-                    </div>
-
-                    <div class="button-group">
-                        <button type="button" class="btn btn-secondary" onclick="prevStep(3)">
-                            ← Voltar
-                        </button>
-                        <button type="button" class="btn btn-primary" id="submitBtn" onclick="submitForm()">
-                            Enviar ✓
+                        <button type="button" class="btn btn-primary" id="submitBtn" onclick="submitFromStep2()">
+                            Enviar Cotação ✓
                         </button>
                     </div>
                 </div>
@@ -853,7 +822,7 @@
             }
         });
 
-        const progress = ((step - 1) / 2) * 100;
+        const progress = ((step - 1) / 1) * 100;
         progressFill.style.width = progress + '%';
     }
 
@@ -880,10 +849,6 @@
         currentStep = step + 1;
         updateProgress(currentStep);
 
-        if (currentStep === 3) {
-            populateReview();
-        }
-
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -895,48 +860,21 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function populateReview() {
-        const reviewContainer = document.getElementById('reviewData');
+    async function submitFromStep2() {
+        // Validate step 2
+        if (!validateStep(2)) {
+            return;
+        }
 
-        const tipoVeiculoMap = {
-            'carros': 'Carro/Utilitário',
-            'motos': 'Moto',
-            'caminhoes': 'Caminhão/Ônibus'
-        };
+        // Collect data from step 2
+        const stepElement = document.getElementById('step2');
+        const inputs = stepElement.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            formData[input.id] = input.value;
+        });
 
-        const getMarcaText = () => {
-            const select = document.getElementById('marca');
-            return select.options[select.selectedIndex]?.dataset?.nome || select.value;
-        };
-
-        const getModeloText = () => {
-            const select = document.getElementById('modelo');
-            return select.options[select.selectedIndex]?.dataset?.nome || select.value;
-        };
-
-        const getAnoText = () => {
-            const select = document.getElementById('ano');
-            return select.options[select.selectedIndex]?.dataset?.nome || select.value;
-        };
-
-        const reviewItems = [
-            { label: 'Placa', value: formData.placa, fullWidth: false },
-            { label: 'Tipo', value: tipoVeiculoMap[formData.veiculo] || formData.veiculo, fullWidth: false },
-            { label: 'Marca', value: getMarcaText(), fullWidth: false },
-            { label: 'Modelo', value: getModeloText(), fullWidth: false },
-            { label: 'Ano', value: getAnoText(), fullWidth: true },
-            { label: 'Nome', value: formData.nome, fullWidth: true },
-            { label: 'E-mail', value: formData.email, fullWidth: false },
-            { label: 'WhatsApp', value: formData.telefone, fullWidth: false },
-            { label: 'Local', value: `${formData.cidade} - ${formData.estado}`, fullWidth: true }
-        ];
-
-        reviewContainer.innerHTML = reviewItems.map(item => `
-            <div class="review-card ${item.fullWidth ? 'full-width' : ''}">
-                <div class="review-label">${item.label}</div>
-                <div class="review-value">${item.value}</div>
-            </div>
-        `).join('');
+        // Call submit
+        await submitForm();
     }
 
     async function submitForm() {
