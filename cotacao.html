@@ -961,14 +961,14 @@
                 });
             }
 
-            document.getElementById('step3').classList.remove('active');
+            document.getElementById('step2').classList.remove('active');
             document.getElementById('successMessage').classList.add('active');
 
         } catch (error) {
             console.error('Erro:', error);
             alert('Erro ao enviar. Tente novamente.');
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Enviar ✓';
+            submitBtn.textContent = 'Enviar Cotação ✓';
         }
     }
 
